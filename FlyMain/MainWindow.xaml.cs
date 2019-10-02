@@ -12,7 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-
+using FlyMain.ViewModel;
 namespace FlyMain
 {
     /// <summary>
@@ -23,6 +23,7 @@ namespace FlyMain
         public MainWindow()
         {
             InitializeComponent();
+            var dc = this.DataContext as MainViewModel;
         }
     }
 }

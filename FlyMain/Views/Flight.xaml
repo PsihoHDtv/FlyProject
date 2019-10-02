@@ -1,0 +1,134 @@
+﻿<UserControl x:Class="FlyMain.Views.Flight"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
+             xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
+             xmlns:dxmvvm="http://schemas.devexpress.com/winfx/2008/xaml/mvvm"
+             mc:Ignorable="d" 
+             xmlns:sys="clr-namespace:System;assembly=mscorlib">
+
+    <Grid>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <DataGrid x:Name="CaseDataGridBase" 
+                   CanUserAddRows="False"
+                   IsReadOnly="False"
+                   Grid.Row="0"
+                   SelectionMode="Extended"
+        	       ItemsSource="{Binding Motor}"
+                   Width="{Binding Path=ActualWidth, ElementName=grid}"
+                   VerticalAlignment="Stretch"
+                   GridLinesVisibility="All" 
+                   RowDetailsVisibilityMode="Visible" 
+                   AutoGenerateColumns="False"
+                   HorizontalContentAlignment="Stretch" 
+                   VerticalContentAlignment="Stretch" 
+                   HorizontalGridLinesBrush="Black" 
+                   VerticalGridLinesBrush="Black"
+                  >
+
+            <DataGrid.Columns>
+                <DataGridTextColumn Width="*"  MinWidth="120" IsReadOnly="true"
+                            Binding="{Binding Name}" >
+                    <DataGridTextColumn.Header>
+                        <StackPanel 
+                            Orientation="Vertical"
+                            VerticalAlignment="Top"
+                            HorizontalAlignment="Stretch"
+                         >
+                            <Border Height="3">
+                            </Border>
+                            <TextBlock Text="Пункт отпраления"  HorizontalAlignment="Center" TextWrapping="Wrap" TextTrimming="CharacterEllipsis"/>
+                        </StackPanel>
+                    </DataGridTextColumn.Header>
+                </DataGridTextColumn>
+
+                <DataGridTextColumn Width="*"  MinWidth="120" IsReadOnly="true" MaxWidth="120"
+                            Binding="{Binding Сapacity}" >
+                    <DataGridTextColumn.Header>
+                        <StackPanel 
+                            Orientation="Vertical"
+                            VerticalAlignment="Top"
+                            HorizontalAlignment="Stretch"
+                         >
+                            <Border Height="3">
+                            </Border>
+                            <TextBlock Text="Пункт назначения"  HorizontalAlignment="Center" TextWrapping="Wrap" TextTrimming="CharacterEllipsis"/>
+                        </StackPanel>
+                    </DataGridTextColumn.Header>
+                </DataGridTextColumn>
+
+                <DataGridTextColumn Width="*"  MinWidth="100" IsReadOnly="true" MaxWidth="100"
+                            Binding="{Binding Efficiency}" >
+                    <DataGridTextColumn.Header>
+                        <StackPanel 
+                            Orientation="Vertical"
+                            VerticalAlignment="Top"
+                            HorizontalAlignment="Stretch"
+                         >
+                            <Border Height="3">
+                            </Border>
+                            <TextBlock Text="Расстояние(км)"  HorizontalAlignment="Center" TextWrapping="Wrap" TextTrimming="CharacterEllipsis"/>
+                        </StackPanel>
+                    </DataGridTextColumn.Header>
+                </DataGridTextColumn>
+
+
+                <DataGridTextColumn Width="*"  MinWidth="120" IsReadOnly="true"  MaxWidth="150"
+                            Binding="{Binding RotationFrequency}" >
+                    <DataGridTextColumn.Header>
+                        <StackPanel 
+                            Orientation="Vertical"
+                            VerticalAlignment="Top"
+                            HorizontalAlignment="Stretch"
+                         >
+                            <Border Height="3">
+                            </Border>
+                            <TextBlock Text="Награда за рейс"  HorizontalAlignment="Center" TextWrapping="Wrap" TextTrimming="CharacterEllipsis"/>
+                        </StackPanel>
+                    </DataGridTextColumn.Header>
+                </DataGridTextColumn>
+
+                <DataGridTextColumn Width="*"  MinWidth="120" IsReadOnly="true"  MaxWidth="120"
+                            Binding="{Binding Voltage}" >
+                    <DataGridTextColumn.Header>
+                        <StackPanel 
+                            Orientation="Vertical"
+                            VerticalAlignment="Top"
+                            HorizontalAlignment="Stretch"
+                         >
+                            <Border Height="3">
+                            </Border>
+                            <TextBlock Text="Тип самолета"  HorizontalAlignment="Center" TextWrapping="Wrap" TextTrimming="CharacterEllipsis"/>
+                        </StackPanel>
+                    </DataGridTextColumn.Header>
+                </DataGridTextColumn>
+                <DataGridTextColumn Width="*"  MinWidth="120" IsReadOnly="true"
+                            Binding="{Binding СapacityStockCoeficient}" >
+                    <DataGridTextColumn.Header>
+                        <StackPanel 
+                            Orientation="Vertical"
+                            VerticalAlignment="Top"
+                            HorizontalAlignment="Stretch"
+                         >
+                            <Border Height="3">
+                            </Border>
+                            <TextBlock Text="Неустойка"  HorizontalAlignment="Center" TextWrapping="Wrap" TextTrimming="CharacterEllipsis"/>
+                        </StackPanel>
+                    </DataGridTextColumn.Header>
+                </DataGridTextColumn>
+
+                
+
+            </DataGrid.Columns>
+        </DataGrid>
+
+    </Grid>
+</UserControl>
