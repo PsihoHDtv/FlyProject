@@ -118,6 +118,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Model\AirplaneModel.cs" />
+    <Compile Include="Model\CityModel.cs" />
+    <Compile Include="Model\FleetModel.cs" />
+    <Compile Include="Model\RouteModel.cs" />
+    <Compile Include="Model\TimeTableModel.cs" />
     <Compile Include="ViewModel\FleetViewModel.cs" />
     <Compile Include="ViewModel\FlightViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />

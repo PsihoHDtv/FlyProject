@@ -21,7 +21,7 @@
                    IsReadOnly="False"
                    Grid.Row="0"
                    SelectionMode="Extended"
-        	       ItemsSource="{Binding FletData}"
+        	       ItemsSource="{Binding Data.FleetList}"
                    Width="{Binding Path=ActualWidth, ElementName=grid}"
                    VerticalAlignment="Stretch"
                    GridLinesVisibility="All" 
@@ -35,7 +35,7 @@
 
             <DataGrid.Columns>
                 <DataGridTextColumn Width="*"  MinWidth="120" IsReadOnly="true"
-                            Binding="{Binding Name}" >
+                            Binding="{Binding Airplane.Name}" >
                     <DataGridTextColumn.Header>
                         <StackPanel 
                             Orientation="Vertical"
@@ -50,7 +50,7 @@
                 </DataGridTextColumn>
 
                 <DataGridTextColumn Width="*"  MinWidth="120" IsReadOnly="true" MaxWidth="120"
-                            Binding="{Binding Сapacity}" >
+                            Binding="{Binding Airplane.FuelConsumption}" >
                     <DataGridTextColumn.Header>
                         <StackPanel 
                             Orientation="Vertical"
@@ -65,7 +65,7 @@
                 </DataGridTextColumn>
 
                 <DataGridTextColumn Width="*"  MinWidth="100" IsReadOnly="true" MaxWidth="100"
-                            Binding="{Binding Efficiency}" >
+                            Binding="{Binding Airplane.CityName}" >
                     <DataGridTextColumn.Header>
                         <StackPanel 
                             Orientation="Vertical"
@@ -81,7 +81,7 @@
 
 
                 <DataGridTextColumn Width="*"  MinWidth="120" IsReadOnly="true"  MaxWidth="150"
-                            Binding="{Binding RotationFrequency}" >
+                            Binding="{Binding Airplane.MaxDistance}" >
                     <DataGridTextColumn.Header>
                         <StackPanel 
                             Orientation="Vertical"
@@ -96,7 +96,7 @@
                 </DataGridTextColumn>
 
                 <DataGridTextColumn Width="*"  MinWidth="120" IsReadOnly="true"  MaxWidth="120"
-                            Binding="{Binding Voltage}" >
+                            Binding="{Binding Airplane.AirpTypeName}" >
                     <DataGridTextColumn.Header>
                         <StackPanel 
                             Orientation="Vertical"
@@ -110,7 +110,7 @@
                     </DataGridTextColumn.Header>
                 </DataGridTextColumn>
                 <DataGridTextColumn Width="*"  MinWidth="120" IsReadOnly="true"
-                            Binding="{Binding СapacityStockCoeficient}" >
+                            Binding="{Binding Airplane.Capacity}" >
                     <DataGridTextColumn.Header>
                         <StackPanel 
                             Orientation="Vertical"
@@ -125,7 +125,7 @@
                 </DataGridTextColumn>
 
                 <DataGridTextColumn Width="*"  MinWidth="120" IsReadOnly="true"
-                            Binding="{Binding Manufacturer}" >
+                            Binding="{Binding Airplane.Price}" >
                     <DataGridTextColumn.Header>
                         <StackPanel 
                             Orientation="Vertical"
@@ -140,7 +140,7 @@
                 </DataGridTextColumn>
 
                 <DataGridTextColumn Width="*"  MinWidth="120" IsReadOnly="true"
-                            Binding="{Binding Dimensions}" >
+                            Binding="{Binding InFlight}" >
                     <DataGridTextColumn.Header>
                         <StackPanel 
                             Orientation="Vertical"

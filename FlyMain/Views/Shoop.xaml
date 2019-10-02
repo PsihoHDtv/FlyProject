@@ -17,12 +17,12 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <DataGrid x:Name="CaseDataGridBase" 
+        <DataGrid x:Name="shop_dg" 
                    CanUserAddRows="False"
                    IsReadOnly="False"
                    Grid.Row="0"
                    SelectionMode="Extended"
-        	       ItemsSource="{Binding Motor}"
+        	       ItemsSource="{Binding Data.AirplaneList}"
                    Width="{Binding Path=ActualWidth, ElementName=grid}"
                    VerticalAlignment="Stretch"
                    GridLinesVisibility="All" 
@@ -52,7 +52,7 @@
                 </DataGridTextColumn>
 
                 <DataGridTextColumn Width="*"  MinWidth="120" IsReadOnly="true" MaxWidth="120"
-                            Binding="{Binding Сapacity}" >
+                            Binding="{Binding FuelConsumption}" >
                     <DataGridTextColumn.Header>
                         <StackPanel 
                             Orientation="Vertical"
@@ -67,7 +67,7 @@
                 </DataGridTextColumn>
 
                 <DataGridTextColumn Width="*"  MinWidth="100" IsReadOnly="true" MaxWidth="100"
-                            Binding="{Binding Efficiency}" >
+                            Binding="{Binding CityName}" >
                     <DataGridTextColumn.Header>
                         <StackPanel 
                             Orientation="Vertical"
@@ -83,7 +83,7 @@
 
 
                 <DataGridTextColumn Width="*"  MinWidth="120" IsReadOnly="true"  MaxWidth="150"
-                            Binding="{Binding RotationFrequency}" >
+                            Binding="{Binding MaxDistance}" >
                     <DataGridTextColumn.Header>
                         <StackPanel 
                             Orientation="Vertical"
@@ -98,7 +98,7 @@
                 </DataGridTextColumn>
 
                 <DataGridTextColumn Width="*"  MinWidth="120" IsReadOnly="true"  MaxWidth="120"
-                            Binding="{Binding Voltage}" >
+                            Binding="{Binding AirpTypeName}" >
                     <DataGridTextColumn.Header>
                         <StackPanel 
                             Orientation="Vertical"
@@ -112,7 +112,7 @@
                     </DataGridTextColumn.Header>
                 </DataGridTextColumn>
                 <DataGridTextColumn Width="*"  MinWidth="120" IsReadOnly="true"
-                            Binding="{Binding СapacityStockCoeficient}" >
+                            Binding="{Binding Capacity}" >
                     <DataGridTextColumn.Header>
                         <StackPanel 
                             Orientation="Vertical"
@@ -127,7 +127,7 @@
                 </DataGridTextColumn>
 
                 <DataGridTextColumn Width="*"  MinWidth="120" IsReadOnly="true"
-                            Binding="{Binding Manufacturer}" >
+                            Binding="{Binding Price}" >
                     <DataGridTextColumn.Header>
                         <StackPanel 
                             Orientation="Vertical"
@@ -140,6 +140,15 @@
                         </StackPanel>
                     </DataGridTextColumn.Header>
                 </DataGridTextColumn>
+
+                <DataGridTemplateColumn MinWidth="100">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Click="sell_Click" >Купить</Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
             </DataGrid.Columns>
         </DataGrid>
 

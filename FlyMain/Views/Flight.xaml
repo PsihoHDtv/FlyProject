@@ -22,7 +22,7 @@
                    IsReadOnly="False"
                    Grid.Row="0"
                    SelectionMode="Extended"
-        	       ItemsSource="{Binding Motor}"
+        	       ItemsSource="{Binding Data}"
                    Width="{Binding Path=ActualWidth, ElementName=grid}"
                    VerticalAlignment="Stretch"
                    GridLinesVisibility="All" 
@@ -51,7 +51,7 @@
                 </DataGridTextColumn>
 
                 <DataGridTextColumn Width="*"  MinWidth="120" IsReadOnly="true" MaxWidth="120"
-                            Binding="{Binding Сapacity}" >
+                            Binding="{Binding Name}" >
                     <DataGridTextColumn.Header>
                         <StackPanel 
                             Orientation="Vertical"
@@ -66,7 +66,7 @@
                 </DataGridTextColumn>
 
                 <DataGridTextColumn Width="*"  MinWidth="100" IsReadOnly="true" MaxWidth="100"
-                            Binding="{Binding Efficiency}" >
+                            Binding="{Binding Name}" >
                     <DataGridTextColumn.Header>
                         <StackPanel 
                             Orientation="Vertical"
@@ -82,7 +82,7 @@
 
 
                 <DataGridTextColumn Width="*"  MinWidth="120" IsReadOnly="true"  MaxWidth="150"
-                            Binding="{Binding RotationFrequency}" >
+                            Binding="{Binding Name}" >
                     <DataGridTextColumn.Header>
                         <StackPanel 
                             Orientation="Vertical"
@@ -97,7 +97,7 @@
                 </DataGridTextColumn>
 
                 <DataGridTextColumn Width="*"  MinWidth="120" IsReadOnly="true"  MaxWidth="120"
-                            Binding="{Binding Voltage}" >
+                            Binding="{Binding Name}" >
                     <DataGridTextColumn.Header>
                         <StackPanel 
                             Orientation="Vertical"
@@ -111,7 +111,7 @@
                     </DataGridTextColumn.Header>
                 </DataGridTextColumn>
                 <DataGridTextColumn Width="*"  MinWidth="120" IsReadOnly="true"
-                            Binding="{Binding СapacityStockCoeficient}" >
+                            Binding="{Binding Name}" >
                     <DataGridTextColumn.Header>
                         <StackPanel 
                             Orientation="Vertical"
