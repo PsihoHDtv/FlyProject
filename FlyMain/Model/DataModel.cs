@@ -29,7 +29,14 @@ namespace FlyMain.Data
         }
 
         private int _balance = 500000;
-        public int Ballance { get { return _balance; } set { _balance = value; PropertyChanged(this, new PropertyChangedEventArgs("Balance")); } }
+        public int Ballance {
+            get { return _balance; }
+            set
+            {
+                _balance = value;
+                PropertyChanged(this, new PropertyChangedEventArgs("Ballance"));
+            }
+        }
         public int FuelPrice { get; set; } = 2;
         /// <summary>
         /// Список маршрутов

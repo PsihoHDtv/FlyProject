@@ -43,7 +43,7 @@ namespace FlyMain.Views
                     Guid id = ((vis as DataGridRow).DataContext as TimeTableModel).Flight.uid;
                     if (dc.CancelFlight(id))
                     {
-                        MessageBox.Show("Рейс отменен");
+                        MessageBox.Show("Рейс отменен, неустойка списана с баланса");
                     }
                     else
                     {
