@@ -21,7 +21,7 @@
                    IsReadOnly="False"
                    Grid.Row="0"
                    SelectionMode="Extended"
-        	       ItemsSource="{Binding Data.FleetList}"
+        	       ItemsSource="{Binding FleetList}"
                    Width="{Binding Path=ActualWidth, ElementName=grid}"
                    VerticalAlignment="Stretch"
                    GridLinesVisibility="All" 

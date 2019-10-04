@@ -8,8 +8,12 @@ namespace FlyMain.Model
 {
     public class TimeTableModel
     {
-        public AirplaneModel Airplane { get; set; }
-        public RouteModel Route { get; set; }
-        public DateTime Date { get; set; }
+        public FlightModel Flight { get; set; }
+        public string StatusName { get
+            {
+                if (Flight.DateStart > DateTime.Now) return "Подготовка к вылету";
+                if (Flight.DateEnd < DateTime.Now) return "Вылет завершен";
+                return "В полете";
+            } }
     }
 }

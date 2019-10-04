@@ -120,6 +120,7 @@
     </ApplicationDefinition>
     <Compile Include="Model\AirplaneModel.cs" />
     <Compile Include="Model\CityModel.cs" />
+    <Compile Include="Model\FlightModel.cs" />
     <Compile Include="Model\FleetModel.cs" />
     <Compile Include="Model\RouteModel.cs" />
     <Compile Include="Model\TimeTableModel.cs" />

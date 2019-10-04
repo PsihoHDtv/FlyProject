@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using DevExpress.Mvvm.POCO;
 using FlyMain.Data;
 namespace FlyMain.ViewModel
 {
@@ -17,14 +18,49 @@ namespace FlyMain.ViewModel
         public DataModel Data { get; set; }
         public virtual WindowState WindowState { get; set; } = WindowState.Maximized;
 
-        protected MainViewModel()
+        public MainViewModel()
         {
             Data = new DataModel();
 
-            Flight =new FlightViewModel(Data);
-            Fleet = new FleetViewModel(Data);
-            Shoop = new ShoopViewModel(Data);
-            TimeTable = new TimeTableViewModel(Data);
+            Flight = FlightViewModel.Create(Data);
+            Fleet =  FleetViewModel.Create(Data);
+            Shoop = ShoopViewModel.Create(Data);
+            TimeTable =  TimeTableViewModel.Create(Data);
+
+            Flight.ParentViewModel = this;
+            Fleet.ParentViewModel = this;
+            Shoop.ParentViewModel = this;
+            TimeTable.ParentViewModel = this;
+            Flight.Reload(Data);
         }
+        public static MainViewModel Create()
+        {
+            return ViewModelSource.Create(() => new MainViewModel());
+        }
+
+        public void OnSeletedViewModel(int newIndexTab, object newViewModelTab)
+        {
+            if (CurrentTab!= Flight && newViewModelTab == Flight)
+            {
+                CurrentTab = Flight;
+                Flight.Reload(Data);
+            }
+            if (CurrentTab != Fleet && newViewModelTab == Fleet)
+            {
+                CurrentTab = Fleet;
+                Fleet.Reload(Data);
+            }
+            if (CurrentTab != Shoop && newViewModelTab == Shoop)
+            {
+                CurrentTab = Shoop;
+            }
+            if (CurrentTab != TimeTable && newViewModelTab == TimeTable)
+            {
+                CurrentTab = TimeTable;
+                TimeTable.Reload(Data);
+            }
+
+        }
+        private object CurrentTab { get; set; } = new object();
     }
 }

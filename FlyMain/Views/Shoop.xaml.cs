@@ -56,7 +56,8 @@ namespace FlyMain.Views
                     foreach (DataGridRow dr in rows)
                     {
                         id = (dr.Item as AirplaneModel).uid;
-                        dc.ByAirplane(id);
+                        if(dc.ByAirplane(id))
+                            MessageBox.Show("Самолет куплен" );
                         break;
                     }
                     break;

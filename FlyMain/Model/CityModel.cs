@@ -8,7 +8,7 @@ namespace FlyMain.Model
 {
    public class CityModel
     {
-        public Guid id { get; set; } = new Guid();
+        public Guid uid { get; set; } = new Guid();
         public string Name { get; set; } = "";
     }
 }

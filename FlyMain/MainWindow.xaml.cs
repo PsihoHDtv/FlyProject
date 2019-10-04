@@ -20,10 +20,12 @@ namespace FlyMain
     /// </summary>
     public partial class MainWindow : Window
     {
+        MainViewModel mainControl;
         public MainWindow()
         {
             InitializeComponent();
-            var dc = this.DataContext as MainViewModel;
+            mainControl = MainViewModel.Create();
+             this.DataContext= mainControl;
         }
     }
 }

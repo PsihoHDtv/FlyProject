@@ -17,12 +17,12 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <DataGrid x:Name="CaseDataGridBase" 
+        <DataGrid x:Name="flight_dg" 
                    CanUserAddRows="False"
                    IsReadOnly="False"
                    Grid.Row="0"
                    SelectionMode="Extended"
-        	       ItemsSource="{Binding Data}"
+        	       ItemsSource="{Binding FlightList}"
                    Width="{Binding Path=ActualWidth, ElementName=grid}"
                    VerticalAlignment="Stretch"
                    GridLinesVisibility="All" 
@@ -36,7 +36,7 @@
 
             <DataGrid.Columns>
                 <DataGridTextColumn Width="*"  MinWidth="120" IsReadOnly="true"
-                            Binding="{Binding Name}" >
+                            Binding="{Binding Route.CityStart.Name}" >
                     <DataGridTextColumn.Header>
                         <StackPanel 
                             Orientation="Vertical"
@@ -51,7 +51,7 @@
                 </DataGridTextColumn>
 
                 <DataGridTextColumn Width="*"  MinWidth="120" IsReadOnly="true" MaxWidth="120"
-                            Binding="{Binding Name}" >
+                            Binding="{Binding Route.CityEnd.Name}" >
                     <DataGridTextColumn.Header>
                         <StackPanel 
                             Orientation="Vertical"
@@ -66,7 +66,7 @@
                 </DataGridTextColumn>
 
                 <DataGridTextColumn Width="*"  MinWidth="100" IsReadOnly="true" MaxWidth="100"
-                            Binding="{Binding Name}" >
+                            Binding="{Binding Route.Distance}" >
                     <DataGridTextColumn.Header>
                         <StackPanel 
                             Orientation="Vertical"
@@ -82,7 +82,7 @@
 
 
                 <DataGridTextColumn Width="*"  MinWidth="120" IsReadOnly="true"  MaxWidth="150"
-                            Binding="{Binding Name}" >
+                            Binding="{Binding Reward}" >
                     <DataGridTextColumn.Header>
                         <StackPanel 
                             Orientation="Vertical"
@@ -97,7 +97,7 @@
                 </DataGridTextColumn>
 
                 <DataGridTextColumn Width="*"  MinWidth="120" IsReadOnly="true"  MaxWidth="120"
-                            Binding="{Binding Name}" >
+                            Binding="{Binding Airplane.AirpTypeName}" >
                     <DataGridTextColumn.Header>
                         <StackPanel 
                             Orientation="Vertical"
@@ -111,7 +111,7 @@
                     </DataGridTextColumn.Header>
                 </DataGridTextColumn>
                 <DataGridTextColumn Width="*"  MinWidth="120" IsReadOnly="true"
-                            Binding="{Binding Name}" >
+                            Binding="{Binding Forfeit}" >
                     <DataGridTextColumn.Header>
                         <StackPanel 
                             Orientation="Vertical"
@@ -125,6 +125,13 @@
                     </DataGridTextColumn.Header>
                 </DataGridTextColumn>
 
+                <DataGridTemplateColumn MinWidth="100">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Click="up_Click" >В полет</Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
                 
 
             </DataGrid.Columns>

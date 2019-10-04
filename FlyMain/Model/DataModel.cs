@@ -35,6 +35,10 @@ namespace FlyMain.Data
         /// Расписание полетов
         /// </summary>
         public ObservableCollection<TimeTableModel> TimeTableList = new ObservableCollection<TimeTableModel>();
+        /// <summary>
+        /// Список рейсов
+        /// </summary>
+        public ObservableCollection<FlightModel> FlightList = new ObservableCollection<FlightModel>();
 
 
         public DataModel()

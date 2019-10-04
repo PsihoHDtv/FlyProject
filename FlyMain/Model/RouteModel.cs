@@ -8,6 +8,8 @@ namespace FlyMain.Model
 {
     public class RouteModel
     {
+
+        public Guid uid { get; set; } = new Guid();
         public CityModel CityStart { get; set; }
         public CityModel CityEnd { get; set; }
         public int Distance { get; set;}
