@@ -35,12 +35,31 @@ namespace FlyMain.Data
         /// Расписание полетов
         /// </summary>
         public ObservableCollection<TimeTableModel> TimeTableList = new ObservableCollection<TimeTableModel>();
+        /// <summary>
+        /// Список рейсов
+        /// </summary>
+        public ObservableCollection<FlightModel> FlightList = new ObservableCollection<FlightModel>();
 
 
         public DataModel()
         {
             //Тут нужно сформировать списки
+            CityList.Add(new CityModel() { uid = new Guid(), Name = "Пермь" });
+            CityList.Add(new CityModel() { uid = new Guid(), Name = "Екат" });
+            CityList.Add(new CityModel() { uid = new Guid(), Name = "Москва" });
+            CityList.Add(new CityModel() { uid = new Guid(), Name = "Питер" });
+            CityList.Add(new CityModel() { uid = new Guid(), Name = "Тюмень" });
+            CityList.Add(new CityModel() { uid = new Guid(), Name = "Киров" });
+            CityList.Add(new CityModel() { uid = new Guid(), Name = "Саратов" });
 
+            AirplaneList.Add(new AirplaneModel() {uid=new Guid(), Name = "самолет1", FuelConsumption = 100, CurrentCity = CityList.First(), MaxDistance = 2000, Price = 5000 });
+            AirplaneList.Add(new AirplaneModel() { uid = new Guid(), Name = "самолет2", FuelConsumption = 120, CurrentCity = CityList.First(), MaxDistance = 5000, Price = 7000 });
+            AirplaneList.Add(new AirplaneModel() { uid = new Guid(), Name = "самолет3", FuelConsumption = 160, CurrentCity = CityList.Last(), MaxDistance = 10000, Price = 10000 });
+
+            //FleetList.Add(new FleetModel(AirplaneList.Last()));//эта строчка для тестов 
+            RouteList.Add(new RouteModel() { uid = new Guid(), CityStart = CityList.First(), CityEnd = CityList.Last(), Distance = 100 });
+            FlightList.Add(new FlightModel(AirplaneList.Last()) { uid = new Guid(), Route = RouteList.First(), DateStart = DateTime.Now, DateEnd = DateTime.Now.AddMinutes(20), Forfeit = 100, Reward = 10 });
+            TimeTableList.Add(new TimeTableModel() { Flight = FlightList.First() });
         }
     }
 }
