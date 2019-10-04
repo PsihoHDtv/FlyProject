@@ -47,52 +47,52 @@ namespace FlyMain.Data
             CityList.Add(new CityModel()
             {
                 Name = "Петропавловск-Камчатский",
-                id = new Guid()
+                uid = new Guid()
             });
             CityList.Add(new CityModel()
             {
                 Name = "Пермь",
-                id = new Guid()
+                uid = new Guid()
             });
             CityList.Add(new CityModel()
             {
                 Name = "Москва",
-                id = new Guid()
+                uid = new Guid()
             });
             CityList.Add(new CityModel()
             {
                 Name = "Омск",
-                id = new Guid()
+                uid = new Guid()
             });
             CityList.Add(new CityModel()
             {
                 Name = "Тюмень",
-                id = new Guid()
+                uid = new Guid()
             });
             CityList.Add(new CityModel()
             {
                 Name = "Санкт-Петербург",
-                id = new Guid()
+                uid = new Guid()
             });
             CityList.Add(new CityModel()
             {
                 Name = "Ростов-на-Дону",
-                id = new Guid()
+                uid = new Guid()
             });
             CityList.Add(new CityModel()
             {
                 Name = "Рязань",
-                id = new Guid()
+                uid = new Guid()
             });
             CityList.Add(new CityModel()
             {
                 Name = "Иркутск",
-                id = new Guid()
+                uid = new Guid()
             });
             CityList.Add(new CityModel()
             {
                 Name = "Самара",
-                id = new Guid()
+                uid = new Guid()
             });
             #endregion
 
@@ -280,6 +280,9 @@ namespace FlyMain.Data
             RouteList.Add(new RouteModel() { CityStart = CityList.Where(x => x.Name == "Самара").First(), CityEnd = CityList.Where(x => x.Name == "Петропавловск-Камчатский").First(), Distance = 6487 });
 
             #endregion
+
+            FlightList.Add(new FlightModel(AirplaneList.Last()) { uid = new Guid(), Route = RouteList.First(), DateStart = DateTime.Now, DateEnd = DateTime.Now.AddMinutes(20), Forfeit = 100, Reward = 10 });
+            TimeTableList.Add(new TimeTableModel() { Flight = FlightList.First() });
         }
     }
 }
