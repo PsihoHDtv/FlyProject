@@ -44,7 +44,7 @@ namespace FlyMain.Data
         public DataModel()
         {
             //Тут нужно сформировать списки
-            CityList.Add(new CityModel() { uid = new Guid(), Name = "Пермь" });
+            CityList.Add(new CityModel() { uid = new Guid(), Name = "Пермь1" });
             CityList.Add(new CityModel() { uid = new Guid(), Name = "Екат" });
             CityList.Add(new CityModel() { uid = new Guid(), Name = "Москва" });
             CityList.Add(new CityModel() { uid = new Guid(), Name = "Питер" });
