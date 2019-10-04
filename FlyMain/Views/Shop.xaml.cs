@@ -17,19 +17,19 @@ using FlyMain.Model;
 namespace FlyMain.Views
 {
     /// <summary>
-    /// Логика взаимодействия для Shoop.xaml
+    /// Логика взаимодействия для Shop.xaml
     /// </summary>
-    public partial class Shoop : UserControl
+    public partial class Shop : UserControl
     {
-        public Shoop()
+        public Shop()
         {
             InitializeComponent();
         }
-        private ShoopViewModel dc
+        private ShopViewModel dc
         {
             get
             {
-                return this.DataContext as ShoopViewModel;
+                return this.DataContext as ShopViewModel;
             }
         }
         private IEnumerable<DataGridRow> GetDataGridRowsForButtons(DataGrid grid)

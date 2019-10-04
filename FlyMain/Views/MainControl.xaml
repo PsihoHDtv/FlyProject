@@ -43,9 +43,9 @@
                     <localViews:Fleet DataContext="{Binding Fleet}" />
                 </TabItem>
                 <TabItem Header="Магазин" Visibility="Visible">
-                    <localViews:Shoop DataContext="{Binding Shoop}" />
+                    <localViews:Shop DataContext="{Binding Shop}" />
                 </TabItem>
-                <TabItem Header="Таблоид" Visibility="Visible">
+                <TabItem Header="Расписание" Visibility="Visible">
                     <localViews:TimeTable DataContext="{Binding TimeTable}" />
                 </TabItem>
 

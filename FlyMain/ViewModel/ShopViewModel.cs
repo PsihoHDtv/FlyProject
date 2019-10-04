@@ -14,27 +14,27 @@ using FlyMain.Data;
 using FlyMain.Model;
 namespace FlyMain.ViewModel
 {
-   public class ShoopViewModel : ISupportParentViewModel
+   public class ShopViewModel : ISupportParentViewModel
     {
         public object ParentViewModel { get; set; }
         public DataModel Data { get; set; }
 
         public ObservableCollection<AirplaneModel> AirplaneList { get; set; }
-        public ShoopViewModel(DataModel data)
+        public ShopViewModel(DataModel data)
         {
             Data = data;
             AirplaneList = Data.AirplaneList;
         }
-        public ShoopViewModel()
+        public ShopViewModel()
         {
         }
-        internal static ShoopViewModel Create()
+        internal static ShopViewModel Create()
         {
-            return ViewModelSource.Create(() => new ShoopViewModel());
+            return ViewModelSource.Create(() => new ShopViewModel());
         }
-        internal static ShoopViewModel Create(DataModel data)
+        internal static ShopViewModel Create(DataModel data)
         {
-            return ViewModelSource.Create(() => new ShoopViewModel(data));
+            return ViewModelSource.Create(() => new ShopViewModel(data));
         }
         /// <summary>
         /// Метод покупки самолета и добавления в ангар

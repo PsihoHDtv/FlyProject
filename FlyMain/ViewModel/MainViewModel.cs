@@ -12,7 +12,7 @@ namespace FlyMain.ViewModel
     {
         public FlightViewModel Flight { get; set; }
         public FleetViewModel Fleet { get; set; }
-        public ShoopViewModel Shoop { get; set; }
+        public ShopViewModel Shop { get; set; }
         public TimeTableViewModel TimeTable { get; set; }
 
         public DataModel Data { get; set; }
@@ -24,12 +24,12 @@ namespace FlyMain.ViewModel
 
             Flight = FlightViewModel.Create(Data);
             Fleet =  FleetViewModel.Create(Data);
-            Shoop = ShoopViewModel.Create(Data);
+            Shop = ShopViewModel.Create(Data);
             TimeTable =  TimeTableViewModel.Create(Data);
 
             Flight.ParentViewModel = this;
             Fleet.ParentViewModel = this;
-            Shoop.ParentViewModel = this;
+            Shop.ParentViewModel = this;
             TimeTable.ParentViewModel = this;
             Flight.Reload(Data);
         }
@@ -50,9 +50,9 @@ namespace FlyMain.ViewModel
                 CurrentTab = Fleet;
                 Fleet.Reload(Data);
             }
-            if (CurrentTab != Shoop && newViewModelTab == Shoop)
+            if (CurrentTab != Shop && newViewModelTab == Shop)
             {
-                CurrentTab = Shoop;
+                CurrentTab = Shop;
             }
             if (CurrentTab != TimeTable && newViewModelTab == TimeTable)
             {

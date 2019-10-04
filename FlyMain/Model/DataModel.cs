@@ -281,7 +281,7 @@ namespace FlyMain.Data
 
             #endregion
 
-            FlightList.Add(new FlightModel(AirplaneList.Last()) { uid = new Guid(), Route = RouteList.First(), DateStart = DateTime.Now, DateEnd = DateTime.Now.AddMinutes(20), Forfeit = 100, Reward = 10 });
+            FlightList.Add(new FlightModel(AirplaneList.Last()) { uid = new Guid(), Route = RouteList.First(), DateStart = DateTime.Now });
             TimeTableList.Add(new TimeTableModel() { Flight = FlightList.First() });
         }
     }

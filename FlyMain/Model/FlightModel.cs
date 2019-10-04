@@ -22,17 +22,17 @@ namespace FlyMain.Model
         /// <summary>
         /// Состояние в рейсе или нет
         /// </summary>
-        public int Reward { get; set; } = 100;
+        public int Reward { get { return Route.Distance * 10; } }
         /// <summary>
         /// Самолет
         /// </summary>
         public AirplaneModel Airplane { get; set; }
         public DateTime DateStart { get; set; }
-        public DateTime DateEnd { get; set; }
+        public DateTime DateEnd { get { return DateStart.AddSeconds(Route.Distance / 100); } }
         /// <summary>
         /// неустойка
         /// </summary>
-        public int Forfeit { get; set; } = 100;
+        public int Forfeit { get { return Route.Distance * 15; } }
         public int Сost { get { return Airplane.FuelConsumption * Route.Distance / 100; } }
 
         public FlightModel(AirplaneModel airplane)

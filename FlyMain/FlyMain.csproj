@@ -127,7 +127,7 @@
     <Compile Include="ViewModel\FleetViewModel.cs" />
     <Compile Include="ViewModel\FlightViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
-    <Compile Include="ViewModel\ShoopViewModel.cs" />
+    <Compile Include="ViewModel\ShopViewModel.cs" />
     <Compile Include="ViewModel\TimeTableViewModel.cs" />
     <Compile Include="Views\Fleet.xaml.cs">
       <DependentUpon>Fleet.xaml</DependentUpon>
@@ -138,8 +138,8 @@
     <Compile Include="Views\Flight.xaml.cs">
       <DependentUpon>Flight.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Shoop.xaml.cs">
-      <DependentUpon>Shoop.xaml</DependentUpon>
+    <Compile Include="Views\Shop.xaml.cs">
+      <DependentUpon>Shop.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\TimeTable.xaml.cs">
       <DependentUpon>TimeTable.xaml</DependentUpon>
@@ -171,7 +171,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\Shoop.xaml">
+    <Page Include="Views\Shop.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
