@@ -1,19 +1,35 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Threading;
 using FlyMain.Model;
 namespace FlyMain.Data
 {
    /// <summary>
    /// Корневой класс модели данных, все остальные структуры должны работать через него
    /// </summary>
-  public  class DataModel
+  public  class DataModel : INotifyPropertyChanged
     {
-        public int Ballance { get; set; } = 500000;
-        public DateTime Date { get; set; } = DateTime.Now;
+        private DateTime _now = DateTime.Now;
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        public DateTime Date
+        {
+            get { return _now; }
+            set
+            {
+                _now = value;
+                PropertyChanged(this, new PropertyChangedEventArgs("Date"));
+            }
+        }
+
+        private int _balance = 500000;
+        public int Ballance { get { return _balance; } set { _balance = value; PropertyChanged(this, new PropertyChangedEventArgs("Balance")); } }
         public int FuelPrice { get; set; } = 2;
         /// <summary>
         /// Список маршрутов
@@ -47,59 +63,59 @@ namespace FlyMain.Data
             CityList.Add(new CityModel()
             {
                 Name = "Петропавловск-Камчатский",
-                uid = new Guid()
+                uid = Guid.NewGuid()
             });
             CityList.Add(new CityModel()
             {
                 Name = "Пермь",
-                uid = new Guid()
+                uid = Guid.NewGuid()
             });
             CityList.Add(new CityModel()
             {
                 Name = "Москва",
-                uid = new Guid()
+                uid = Guid.NewGuid()
             });
             CityList.Add(new CityModel()
             {
                 Name = "Омск",
-                uid = new Guid()
+                uid = Guid.NewGuid()
             });
             CityList.Add(new CityModel()
             {
                 Name = "Тюмень",
-                uid = new Guid()
+                uid = Guid.NewGuid()
             });
             CityList.Add(new CityModel()
             {
                 Name = "Санкт-Петербург",
-                uid = new Guid()
+                uid = Guid.NewGuid()
             });
             CityList.Add(new CityModel()
             {
                 Name = "Ростов-на-Дону",
-                uid = new Guid()
+                uid = Guid.NewGuid()
             });
             CityList.Add(new CityModel()
             {
                 Name = "Рязань",
-                uid = new Guid()
+                uid = Guid.NewGuid()
             });
             CityList.Add(new CityModel()
             {
                 Name = "Иркутск",
-                uid = new Guid()
+                uid = Guid.NewGuid()
             });
             CityList.Add(new CityModel()
             {
                 Name = "Самара",
-                uid = new Guid()
+                uid = Guid.NewGuid()
             });
             #endregion
 
             #region Airplanes
             AirplaneList.Add(new AirplaneModel()
             {
-                uid = new Guid(),
+                uid = Guid.NewGuid(),
                 Name = "Боинг 747",
                 FuelConsumption = 1190,
                 CurrentCity = CityList.Where(x => x.Name == "Петропавловск-Камчатский").FirstOrDefault(),
@@ -110,7 +126,7 @@ namespace FlyMain.Data
             });
             AirplaneList.Add(new AirplaneModel()
             {
-                uid = new Guid(),
+                uid = Guid.NewGuid(),
                 Name = "ТУ 134",
                 FuelConsumption = 360,
                 CurrentCity = CityList.Where(x => x.Name == "Пермь").FirstOrDefault(),
@@ -121,7 +137,7 @@ namespace FlyMain.Data
             });
             AirplaneList.Add(new AirplaneModel()
             {
-                uid = new Guid(),
+                uid = Guid.NewGuid(),
                 Name = "Sukhoi SuperJet-100 ",
                 FuelConsumption = 530,
                 CurrentCity = CityList.Where(x => x.Name == "Москва").FirstOrDefault(),
@@ -132,7 +148,7 @@ namespace FlyMain.Data
             });
             AirplaneList.Add(new AirplaneModel()
             {
-                uid = new Guid(),
+                uid = Guid.NewGuid(),
                 Name = "ИЛ 62",
                 FuelConsumption = 600,
                 CurrentCity = CityList.Where(x => x.Name == "Омск").FirstOrDefault(),
@@ -143,7 +159,7 @@ namespace FlyMain.Data
             });
             AirplaneList.Add(new AirplaneModel()
             {
-                uid = new Guid(),
+                uid = Guid.NewGuid(),
                 Name = "ИЛ 86",
                 FuelConsumption = 570,
                 CurrentCity = CityList.Where(x => x.Name == "Тюмень").FirstOrDefault(),
@@ -154,7 +170,7 @@ namespace FlyMain.Data
             });
             AirplaneList.Add(new AirplaneModel()
             {
-                uid = new Guid(),
+                uid = Guid.NewGuid(),
                 Name = "АН 12",
                 FuelConsumption = 600,
                 CurrentCity = CityList.Where(x => x.Name == "Санкт-Петербург").FirstOrDefault(),
@@ -165,7 +181,7 @@ namespace FlyMain.Data
             });
             AirplaneList.Add(new AirplaneModel()
             {
-                uid = new Guid(),
+                uid = Guid.NewGuid(),
                 Name = "ТУ 154",
                 FuelConsumption = 590,
                 CurrentCity = CityList.Where(x => x.Name == "Ростов-на-Дону").FirstOrDefault(),
@@ -176,7 +192,7 @@ namespace FlyMain.Data
             });
             AirplaneList.Add(new AirplaneModel()
             {
-                uid = new Guid(),
+                uid = Guid.NewGuid(),
                 Name = "ТУ 154",
                 FuelConsumption = 1200,
                 CurrentCity = CityList.Where(x => x.Name == "Рязань").FirstOrDefault(),
@@ -281,8 +297,18 @@ namespace FlyMain.Data
 
             #endregion
 
-            FlightList.Add(new FlightModel(AirplaneList.Last()) { uid = new Guid(), Route = RouteList.First(), DateStart = DateTime.Now });
+            FlightList.Add(new FlightModel(AirplaneList.Last()) { uid = Guid.NewGuid(), Route = RouteList.First(), DateStart = DateTime.Now });
             TimeTableList.Add(new TimeTableModel() { Flight = FlightList.First() });
+
+            DispatcherTimer timer = new DispatcherTimer();
+            timer.Interval = TimeSpan.FromMilliseconds(500);
+            timer.Tick += new EventHandler(timer_Tick);
+            timer.Start();
+        }
+
+        private void timer_Tick(object sender, EventArgs e)
+        {
+            Date = DateTime.Now;
         }
     }
 }

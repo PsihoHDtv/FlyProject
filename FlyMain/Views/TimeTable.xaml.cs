@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using FlyMain.Model;
 using FlyMain.ViewModel;
 
 namespace FlyMain.Views
@@ -31,6 +32,25 @@ namespace FlyMain.Views
             {
                 return this.DataContext as TimeTableViewModel;
             }
+        }
+
+        void cancel_Click(object sender, RoutedEventArgs e)
+        {
+
+            for (var vis = sender as Visual; vis != null; vis = VisualTreeHelper.GetParent(vis) as Visual)
+                if (vis is DataGridRow)
+                {
+                    Guid id = ((vis as DataGridRow).DataContext as TimeTableModel).Flight.uid;
+                    if (dc.CancelFlight(id))
+                    {
+                        MessageBox.Show("Рейс отменен");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Рейс начат и не может быть отменен");
+                    }
+                    break;
+                }
         }
     }
 }

@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Threading;
+using FlyMain.Data;
 using FlyMain.ViewModel;
 namespace FlyMain
 {
@@ -25,7 +27,7 @@ namespace FlyMain
         {
             InitializeComponent();
             mainControl = MainViewModel.Create();
-             this.DataContext= mainControl;
+            this.DataContext = mainControl;
         }
     }
 }

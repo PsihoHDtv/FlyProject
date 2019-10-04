@@ -34,10 +34,26 @@ namespace FlyMain.ViewModel
         public ObservableCollection<TimeTableModel> TimeTableList { get; set; } = new ObservableCollection<TimeTableModel>();
         public void Reload(DataModel data)
         {
-
             TimeTableList.Clear();
             foreach (TimeTableModel item in Data.TimeTableList)
                 TimeTableList.Add(item);
+        }
+
+        /// <summary>
+        /// Метод отмены запланированного рейса
+        /// </summary>
+        /// <param name="uid"></param>
+        public bool CancelFlight(Guid uid)
+        {
+            FlightModel flight = Data.TimeTableList.Select(x => x.Flight).Where(x => x.uid == uid).FirstOrDefault();
+            if (flight != null && flight.DateStart < Data.Date)
+            {
+                Data.Ballance -= flight.Forfeit;
+                TimeTableList.Remove(TimeTableList.Where(x => x.Flight == flight).First());
+                Data.TimeTableList.Remove(Data.TimeTableList.Where(x => x.Flight == flight).First());
+                return true;
+            }
+            return false;
         }
     }
 }

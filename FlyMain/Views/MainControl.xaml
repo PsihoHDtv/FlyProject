@@ -74,9 +74,9 @@
                 <ColumnDefinition Width="Auto" />
             </Grid.ColumnDefinitions>
             <Label Grid.Row="0" Grid.Column="0" Content="Дата" Padding="0 5 5 5" VerticalAlignment="Center" HorizontalAlignment="Right"/>
-            <TextBox Grid.Row="0" Grid.Column="1" Width="150" Margin="4"  HorizontalAlignment="Right" Text="{Binding Path=Data.Date, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" VerticalContentAlignment="Center" IsEnabled="{Binding Pump.HaveSeparator}"/>
+            <TextBox Grid.Row="0" Grid.Column="1" Width="150" Margin="4"  HorizontalAlignment="Right" Text="{Binding Data.Date}" VerticalContentAlignment="Center" IsEnabled="False"/>
             <Label Grid.Row="0" Grid.Column="3" Content="Баланс:" Padding="0 5 5 5" VerticalAlignment="Center" HorizontalAlignment="Right"/>
-            <TextBox Grid.Row="0" Grid.Column="4" Width="80" Margin="4"  HorizontalAlignment="Right" Text="{Binding Path=Data.Ballance, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" VerticalContentAlignment="Center" IsEnabled="{Binding Pump.HaveSeparator}"/>
+            <TextBox Grid.Row="0" Grid.Column="4" Width="80" Margin="4"  HorizontalAlignment="Right" Text="{Binding Path=Data.Ballance, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" VerticalContentAlignment="Center" IsEnabled="False"/>
             <Label Grid.Row="0" Grid.Column="5" Content="Руб" Padding="0 5 5 5" VerticalAlignment="Center" HorizontalAlignment="Right"/>
 
         </Grid>

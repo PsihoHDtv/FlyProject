@@ -49,20 +49,12 @@ namespace FlyMain.Views
             for (var vis = sender as Visual; vis != null; vis = VisualTreeHelper.GetParent(vis) as Visual)
                 if (vis is DataGridRow)
                 {
-                    // var row = (DataGrid)vis;
+                    Guid id = ((vis as DataGridRow).DataContext as AirplaneModel).uid;
+                    if (dc.BuyAirplane(id))
+                        MessageBox.Show("Самолет куплен");
 
-                    var rows = GetDataGridRowsForButtons(shop_dg);
-                    Guid id;
-                    foreach (DataGridRow dr in rows)
-                    {
-                        id = (dr.Item as AirplaneModel).uid;
-                        if(dc.ByAirplane(id))
-                            MessageBox.Show("Самолет куплен" );
-                        break;
-                    }
                     break;
                 }
         }
     }
-
 }

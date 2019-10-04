@@ -36,17 +36,19 @@ namespace FlyMain.ViewModel
         {
             return ViewModelSource.Create(() => new ShopViewModel(data));
         }
+
         /// <summary>
         /// Метод покупки самолета и добавления в ангар
         /// </summary>
         /// <param name="uid"></param>
-        public bool ByAirplane(Guid uid)
+        public bool BuyAirplane(Guid uid)
         {
             FleetModel fleet = new FleetModel(Data.AirplaneList.Where(x => x.uid == uid).FirstOrDefault());
             if (fleet.Airplane != null && Data.Ballance > fleet.Airplane.Price)
             {
                 Data.Ballance = Data.Ballance - fleet.Airplane.Price;
                 Data.FleetList.Add(fleet);
+                Data.AirplaneList.Remove(fleet.Airplane);
                 return true;
             }
             return false;

@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Threading;
 using DevExpress.Mvvm.POCO;
 using FlyMain.Data;
 namespace FlyMain.ViewModel
@@ -33,6 +35,7 @@ namespace FlyMain.ViewModel
             TimeTable.ParentViewModel = this;
             Flight.Reload(Data);
         }
+
         public static MainViewModel Create()
         {
             return ViewModelSource.Create(() => new MainViewModel());
