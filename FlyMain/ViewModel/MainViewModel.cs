@@ -12,6 +12,7 @@ namespace FlyMain.ViewModel
 {
     public class MainViewModel
     {
+        
         public FlightViewModel Flight { get; set; }
         public FleetViewModel Fleet { get; set; }
         public ShopViewModel Shop { get; set; }
@@ -34,6 +35,11 @@ namespace FlyMain.ViewModel
             Shop.ParentViewModel = this;
             TimeTable.ParentViewModel = this;
             Flight.Reload(Data);
+
+            DispatcherTimer timer = new DispatcherTimer();
+            timer.Interval = TimeSpan.FromMilliseconds(500);
+            timer.Tick += new EventHandler(timer_Tick);
+            timer.Start();
         }
 
         public static MainViewModel Create()
@@ -65,5 +71,24 @@ namespace FlyMain.ViewModel
 
         }
         private object CurrentTab { get; set; } = new object();
+
+        private void timer_Tick(object sender, EventArgs e)
+        {
+            Data.Date = DateTime.Now;
+            Data.TimeTableList.ToList().ForEach((x) =>
+            {
+                if (x.Status == 0 && x.Flight.DateStart <= Data.Date)
+                {
+                    x.Status = 1;
+                }
+                else if (x.Status == 1 && x.Flight.DateEnd <= Data.Date)
+                {
+                    x.Status = 2;
+                    Data.Ballance += x.Flight.Reward;
+                    MessageBox.Show("Рейс завершен. Награда: " + x.Flight.Reward);
+                }
+            });
+            TimeTable.Reload(Data);
+        }
     }
 }

@@ -125,6 +125,24 @@
                     </DataGridTextColumn.Header>
                 </DataGridTextColumn>
 
+                <DataGridComboBoxColumn x:Name="ComboBoxColumn"  Width="*" MinWidth="100" 
+                                        ItemsSource="{Binding FleetList}"
+                                        DisplayMemberPath="Airplane.Name"
+                                        SelectedValuePath="Airplane.uid"
+                                        SelectedValueBinding="{Binding Airplane.uid}">
+                    <DataGridComboBoxColumn.Header>
+                        <StackPanel 
+                            Orientation="Vertical"
+                            VerticalAlignment="Top"
+                            HorizontalAlignment="Stretch"
+                         >
+                            <Border Height="3">
+                            </Border>
+                            <TextBlock Text="Выбор самолета"  HorizontalAlignment="Center" TextWrapping="Wrap" TextTrimming="CharacterEllipsis"/>
+                        </StackPanel>
+                    </DataGridComboBoxColumn.Header>
+                </DataGridComboBoxColumn>
+
                 <DataGridTemplateColumn MinWidth="100">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>

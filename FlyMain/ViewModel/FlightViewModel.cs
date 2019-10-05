@@ -17,7 +17,7 @@ namespace FlyMain.ViewModel
 
         private DataModel Data { get; set; }
 
-        public  FlightViewModel(DataModel data)
+        public FlightViewModel(DataModel data)
         {
             Data = data;
             RouteList.Clear();
@@ -41,18 +41,17 @@ namespace FlyMain.ViewModel
         public ObservableCollection<RouteModel> RouteList { get; set; } = new ObservableCollection<RouteModel>();
         public void Reload(DataModel data)
         {
-
             FlightList.Clear();
             foreach (FlightModel item in Data.FlightList)
                 FlightList.Add(item);
             FleetList.Clear();
-            foreach (FleetModel item in Data.FleetList)
+            foreach (FleetModel item in Data.FleetList.Where(x => !x.InFlight))
                 FleetList.Add(item);
         }
 
         public bool UpTimeTable(Guid uid)
         {
-            TimeTableModel tt = new TimeTableModel() { Flight= FlightList.Where(x=>x.uid==uid).First() };
+            TimeTableModel tt = new TimeTableModel() { Flight = FlightList.Where(x => x.uid == uid).First() };
             if (tt.Flight != null)
             {
                 Data.TimeTableList.Add(tt);

@@ -14,7 +14,7 @@ namespace FlyMain.Model
         /// <summary>
         /// Гуид самолета пользователя, так как самолетов у пользователя может быть несколько 1 типа
         /// </summary>
-        public Guid uid { get; set; } = new Guid();
+        public Guid uid { get; set; } = Guid.NewGuid();
         /// <summary>
         /// Самолет
         /// </summary>

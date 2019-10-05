@@ -8,7 +8,7 @@ namespace FlyMain.Model
 {
     public class AirplaneModel
     {
-        public Guid uid { get; set; } = new Guid();
+        public Guid uid { get; set; } = Guid.NewGuid();
         /// <summary>
         /// Название самолета
         /// </summary>

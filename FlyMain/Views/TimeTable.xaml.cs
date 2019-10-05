@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 using FlyMain.Model;
 using FlyMain.ViewModel;
 
@@ -25,7 +26,8 @@ namespace FlyMain.Views
         public TimeTable()
         {
             InitializeComponent();
-        }
+        } 
+
         private TimeTableViewModel dc
         {
             get
@@ -47,7 +49,7 @@ namespace FlyMain.Views
                     }
                     else
                     {
-                        MessageBox.Show("Рейс начат и не может быть отменен");
+                        MessageBox.Show("Рейс начат, отменен или уже выполнен");
                     }
                     break;
                 }

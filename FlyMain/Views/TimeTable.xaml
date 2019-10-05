@@ -183,6 +183,21 @@
                         </StackPanel>
                     </DataGridTextColumn.Header>
                 </DataGridTextColumn>
+                
+                <DataGridTextColumn Width="*"  MinWidth="120" IsReadOnly="true"
+                            Binding="{Binding StatusName}" >
+                    <DataGridTextColumn.Header>
+                        <StackPanel 
+                            Orientation="Vertical"
+                            VerticalAlignment="Top"
+                            HorizontalAlignment="Stretch"
+                         >
+                            <Border Height="3">
+                            </Border>
+                            <TextBlock Text="Статус"  HorizontalAlignment="Center" TextWrapping="Wrap" TextTrimming="CharacterEllipsis"/>
+                        </StackPanel>
+                    </DataGridTextColumn.Header>
+                </DataGridTextColumn>
 
                 <DataGridTemplateColumn MinWidth="100">
                     <DataGridTemplateColumn.CellTemplate>

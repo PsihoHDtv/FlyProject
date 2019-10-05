@@ -9,11 +9,17 @@ namespace FlyMain.Model
     public class TimeTableModel
     {
         public FlightModel Flight { get; set; }
-        public string StatusName { get
+        public string StatusName
+        {
+            get
             {
-                if (Flight.DateStart > DateTime.Now) return "Подготовка к вылету";
-                if (Flight.DateEnd < DateTime.Now) return "Вылет завершен";
-                return "В полете";
-            } }
+                if (Status == 0) return "Подготовка";
+                if (Status == 1) return "Выполняется";
+                if (Status == 2) return "Завершен";
+                return "Отменен";
+            }
+        }
+
+        public int Status { get; set; }
     }
 }

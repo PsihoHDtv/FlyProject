@@ -45,12 +45,12 @@ namespace FlyMain.ViewModel
         /// <param name="uid"></param>
         public bool CancelFlight(Guid uid)
         {
-            FlightModel flight = Data.TimeTableList.Select(x => x.Flight).Where(x => x.uid == uid).FirstOrDefault();
-            if (flight != null && flight.DateStart < Data.Date)
+            TimeTableModel flight = Data.TimeTableList.Where(x => x.Flight.uid == uid).FirstOrDefault();
+            if (flight != null && flight.Status == 0)
             {
-                Data.Ballance -= flight.Forfeit;
-                TimeTableList.Remove(TimeTableList.Where(x => x.Flight == flight).First());
-                Data.TimeTableList.Remove(Data.TimeTableList.Where(x => x.Flight == flight).First());
+                Data.Ballance -= flight.Flight.Forfeit;
+                flight.Status = 3;
+                Reload(Data);
                 return true;
             }
             return false;

@@ -306,16 +306,6 @@ namespace FlyMain.Data
 
             FlightList.Add(new FlightModel(AirplaneList.Last()) { uid = Guid.NewGuid(), Route = RouteList.First(), DateStart = DateTime.Now });
             TimeTableList.Add(new TimeTableModel() { Flight = FlightList.First() });
-
-            DispatcherTimer timer = new DispatcherTimer();
-            timer.Interval = TimeSpan.FromMilliseconds(500);
-            timer.Tick += new EventHandler(timer_Tick);
-            timer.Start();
-        }
-
-        private void timer_Tick(object sender, EventArgs e)
-        {
-            Date = DateTime.Now;
         }
     }
 }
